@@ -3,7 +3,7 @@
   "description": "Unofficial Async-JSX component for Font Awesome 5",
   "version": "0.1.4",
   "main": "index.js",
-  "module": "src/index.js",
+  "module": "index.es.js",
   "types": "index.d.ts",
   "homepage": "https://github.com/aduh95/jsx-fontawesome",
   "repository": {

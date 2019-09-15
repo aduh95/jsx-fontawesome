@@ -28,7 +28,6 @@
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
     "prettier": "pretty-quick src --staged",
-    "precommit": "npm run lint && npm run prettier && lint-staged",
     "preversion": "npm run build",
     "prepack": "npm run dist",
     "test": "jest",
@@ -58,11 +57,11 @@
     "eslint-config-standard": "^14.0.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jest": "^21.7.0",
-    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.1",
     "eslint-plugin-standard": "^4.0.1",
-    "husky": "^0.14.3",
+    "husky": "^2.6.0",
     "jest": "^24.9.0",
     "lint-staged": "^7.2.0",
     "markdown-toc": "^1.2.0",
@@ -70,7 +69,7 @@
     "pretty-quick": "^1.2.2",
     "rollup": "^1.0.0",
     "rollup-plugin-babel": "^4.2.0",
-    "rollup-plugin-node-resolve": "^4.0.0"
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "dependencies": {
     "prop-types": "^15.5.10"
@@ -79,5 +78,10 @@
     "index.js",
     "index.es.js",
     "index.d.ts"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run prettier && lint-staged"
+    }
+  }
 }

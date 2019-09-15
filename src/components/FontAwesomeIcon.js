@@ -12,7 +12,7 @@ function objectWithKey(key, value) {
 }
 
 function classList(props) {
-  let classes = {
+  const classes = {
     'fa-spin': props.spin,
     'fa-pulse': props.pulse,
     'fa-fw': props.fixedWidth,
@@ -81,11 +81,11 @@ export default function FontAwesomeIcon(props) {
   const { abstract } = renderedIcon
   const extraProps = {}
 
-  Object.keys(props).forEach(key => {
-    if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
+  Object.keys(props)
+    .filter(key => !(key in FontAwesomeIcon.defaultProps))
+    .forEach(key => {
       extraProps[key] = props[key]
-    }
-  })
+    })
 
   return convertCurry(abstract[0], extraProps)
 }

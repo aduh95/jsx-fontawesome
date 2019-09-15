@@ -37,11 +37,11 @@ function convert(createElement, element, extraProps = {}) {
 
       switch (key) {
         case 'class':
-          acc.attrs['className'] = val
-          delete element.attributes['class']
+          acc.attrs.className = val
+          delete element.attributes.class
           break
         case 'style':
-          acc.attrs['style'] = styleToObject(val)
+          acc.attrs.style = styleToObject(val)
           break
         default:
           if (key.indexOf('aria-') === 0 || key.indexOf('data-') === 0) {
@@ -58,7 +58,7 @@ function convert(createElement, element, extraProps = {}) {
 
   const { style: existingStyle = {}, ...remaining } = extraProps
 
-  mixins.attrs['style'] = { ...mixins.attrs['style'], ...existingStyle }
+  mixins.attrs.style = { ...mixins.attrs.style, ...existingStyle }
 
   return createElement(
     element.tag,

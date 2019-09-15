@@ -29,6 +29,7 @@
     "lint": "eslint src",
     "prettier": "pretty-quick src --staged",
     "precommit": "npm run lint && npm run prettier && lint-staged",
+    "preversion": "npm run build",
     "prepack": "npm run dist",
     "test": "jest",
     "clean": "rm -f index.js && rm -f index.es.js"

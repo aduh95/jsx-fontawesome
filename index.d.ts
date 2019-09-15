@@ -1,5 +1,3 @@
-/// <reference types="react" />
-import { CSSProperties } from 'react'
 import {
   Transform,
   IconProp,
@@ -29,7 +27,7 @@ export interface Props {
   rotation?: RotateProp
   transform?: string | Transform
   symbol?: FaSymbol
-  style?: CSSProperties
+  style?: string
   tabIndex?: number;
   title?: string;
 }

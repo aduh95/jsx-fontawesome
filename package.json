@@ -1,5 +1,5 @@
 {
-  "name": "@fortawesome/jsx-fontawesome",
+  "name": "@aduh95/jsx-fontawesome",
   "description": "Unofficial Async-JSX component for Font Awesome 5",
   "version": "0.1.4",
   "main": "index.js",

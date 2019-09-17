@@ -148,7 +148,7 @@ function FontAwesomeIcon(props) {
     title
   } = props;
   const iconLookup = normalizeIconArgs(iconArgs);
-  const classes = objectWithKey('classes', [...classList(props), ...className.split(' ')]);
+  const classes = objectWithKey('classes', [...classList(props), ...(className || '').split(' ')]);
   const transform = objectWithKey('transform', typeof props.transform === 'string' ? parse.transform(props.transform) : props.transform);
   const mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
   const renderedIcon = icon(iconLookup, { ...classes,

@@ -1,7 +1,7 @@
 {
   "name": "@aduh95/jsx-fontawesome",
   "description": "Unofficial Async-JSX component for Font Awesome 5",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "index.js",
   "module": "index.es.js",
   "types": "index.d.ts",
@@ -28,7 +28,7 @@
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
     "prettier": "pretty-quick src --staged",
-    "preversion": "npm run build",
+    "preversion": "npm run build && git add index.*",
     "prepack": "npm run dist",
     "test": "jest",
     "clean": "rm -f index.js && rm -f index.es.js"

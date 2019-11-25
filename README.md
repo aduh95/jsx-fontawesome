@@ -71,10 +71,32 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 
 ## Installation
 
+Using NPM:
+
+```
+$ npm i --save @fortawesome/fontawesome-svg-core
+$ npm i --save @fortawesome/free-solid-svg-icons
+$ npm i --save @fortawesome/react-fontawesome
+```
+
+or
+
+```
+$ npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+```
+
+Or with Yarn:
+
 ```
 $ npm i @fortawesome/fontawesome-svg-core
 $ npm i @fortawesome/free-solid-svg-icons
 $ npm i @aduh95/jsx-fontawesome
+```
+
+or
+
+```
+$ yarn add @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 ```
 
 ## Add more styles or Pro icons

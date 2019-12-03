@@ -213,7 +213,7 @@
     title: '',
     transform: null
   };
-  const convertCurry = convert.bind(null, asyncJsx.h);
+  const convertCurry = convert.bind(null, asyncJsx.createSVGElement);
 
   exports.FontAwesomeIcon = FontAwesomeIcon;
 

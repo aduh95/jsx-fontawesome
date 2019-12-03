@@ -1,6 +1,6 @@
 import { parse, icon } from '@fortawesome/fontawesome-svg-core';
 import PropTypes from 'prop-types';
-import { h } from '@aduh95/async-jsx';
+import { createSVGElement } from '@aduh95/async-jsx';
 
 /**
  * Removes any hypens, underscores, and whitespace characters, and uppercases the first character that follows.
@@ -209,6 +209,6 @@ FontAwesomeIcon.defaultProps = {
   title: '',
   transform: null
 };
-const convertCurry = convert.bind(null, h);
+const convertCurry = convert.bind(null, createSVGElement);
 
 export { FontAwesomeIcon };

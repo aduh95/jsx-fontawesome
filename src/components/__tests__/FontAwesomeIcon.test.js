@@ -238,7 +238,7 @@ describe('mask', () => {
     const vm = mount({ icon: faCoffee, mask: faCircle })
 
     expect(vm.children.length).toBe(2)
-    expect('clipPath' in vm.children[1].props).toBeTruthy()
+    expect(vm.children[1].props.hasOwnProperty('clipPath')).toBeTruthy() // eslint-disable-line no-prototype-builtins
   })
 })
 

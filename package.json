@@ -29,8 +29,8 @@
     "build": "rollup -c rollup.config.js",
     "dist": "cross-env NODE_ENV=production npm run build",
     "lint": "eslint src",
-    "prettier": "pretty-quick src --staged",
-    "preversion": "npm run build && git add index.*",
+    "prettier": "pretty-quick --pattern src/** --staged",
+    "precommit": "npm run lint && npm run prettier && lint-staged",
     "prepack": "npm run dist",
     "test": "jest",
     "clean": "rm -f index.js && rm -f index.es.js"
@@ -81,9 +81,14 @@
     "index.es.js",
     "index.d.ts"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run prettier && lint-staged"
-    }
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "ie > 10"
+  ],
+  "jest": {
+    "roots": [
+      "src"
+    ]
   }
 }

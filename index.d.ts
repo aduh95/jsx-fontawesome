@@ -30,4 +30,5 @@ export interface Props {
   style?: string
   tabIndex?: number;
   title?: string;
+  swapOpacity?: boolean;
 }

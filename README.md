@@ -2,11 +2,13 @@
   <img align="right" width="100" height="100" alt="Official Javascript Component" src="https://img.fortawesome.com/349cfdf6/official-javascript-component.svg">
 </a>
 
-# react-fontawesome
+# jsx-fontawesome
 
-[![npm](https://img.shields.io/npm/v/@fortawesome/react-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
+[![npm](https://img.shields.io/npm/v/@aduh95/jsx-fontawesome.svg?style=flat-square)](https://www.npmjs.com/package/@aduh95/jsx-fontawesome)
 
-> Font Awesome 5 React component using SVG with JS
+> Font Awesome 5 React component using SVG with JS – but instead of React, it's another JSX library of mine.
+
+Check out the original (and official) project: [FortAwesome/react-fontawesome](https://github.com/FortAwesome/react-fontawesome).
 
 <!-- toc -->
 
@@ -22,7 +24,6 @@
   * [Explicit Import](#explicit-import)
   * [Build a Library to Reference Icons Throughout Your App More Conveniently](#build-a-library-to-reference-icons-throughout-your-app-more-conveniently)
   * [Unit Testing](#unit-testing)
-  * [Processing i elements into svg using Font Awesome](#processing-i-elements-into-svg-using-font-awesome)
 - [Features](#features)
   * [Basic](#basic)
   * [Advanced](#advanced)
@@ -32,7 +33,6 @@
   * [I don't think tree-shaking is working; got any advice?](#i-dont-think-tree-shaking-is-working-got-any-advice)
 - [How to Help](#how-to-help)
 - [Contributors](#contributors)
-- [Releasing this project (only project owners can do this)](#releasing-this-project-only-project-owners-can-do-this)
 
 <!-- tocstop -->
 
@@ -70,9 +70,9 @@ You might also be interested in the larger umbrella project [UPGRADING.md](https
 ## Installation
 
 ```
-$ npm i --save @fortawesome/fontawesome-svg-core
-$ npm i --save @fortawesome/free-solid-svg-icons
-$ npm i --save @fortawesome/react-fontawesome
+$ npm i @fortawesome/fontawesome-svg-core
+$ npm i @fortawesome/free-solid-svg-icons
+$ npm i @aduh95/jsx-fontawesome
 ```
 
 ## Add more styles or Pro icons
@@ -83,16 +83,16 @@ version 4 to 5 we have a limited number of Regular icons available.
 **Visit [fontawesome.com/icons](https://fontawesome.com/icons) to search for free and Pro icons**
 
 ```
-$ npm i --save @fortawesome/free-brands-svg-icons
-$ npm i --save @fortawesome/free-regular-svg-icons
+$ npm i @fortawesome/free-brands-svg-icons
+$ npm i @fortawesome/free-regular-svg-icons
 ```
 
 If you are a [Font Awesome Pro](https://fontawesome.com/pro) subscriber you can install Pro packages; this requires [additional configuration](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers).
 
 ```
-$ npm i --save @fortawesome/pro-solid-svg-icons
-$ npm i --save @fortawesome/pro-regular-svg-icons
-$ npm i --save @fortawesome/pro-light-svg-icons
+$ npm i @fortawesome/pro-solid-svg-icons
+$ npm i @fortawesome/pro-regular-svg-icons
+$ npm i @fortawesome/pro-light-svg-icons
 ```
 
 ## or with Yarn
@@ -100,7 +100,7 @@ $ npm i --save @fortawesome/pro-light-svg-icons
 ```
 $ yarn add @fortawesome/fontawesome-svg-core
 $ yarn add @fortawesome/free-solid-svg-icons
-$ yarn add @fortawesome/react-fontawesome
+$ yarn add @aduh95/jsx-fontawesome
 ```
 
 ## Usage
@@ -137,7 +137,7 @@ For this example, we'll also reference the `@fortawesome/free-solid-svg-icons`
 module, so make sure you've added it to the project as well:
 
 ```
-$ npm i --save @fortawesome/free-solid-svg-icons
+$ npm i @fortawesome/free-solid-svg-icons
 ```
 
 or
@@ -150,7 +150,7 @@ Now, a simple React component might look like this:
 
 ```javascript
 import ReactDOM from 'react-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@aduh95/jsx-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 const element = <FontAwesomeIcon icon={faCoffee} />
@@ -186,7 +186,7 @@ imagination as to how this might scale up with lots of icons.
 Don't forget to add `@fortawesome/free-brands-svg-icons`:
 
 ```
-$ npm i --save @fortawesome/free-brands-svg-icons
+$ npm i @fortawesome/free-brands-svg-icons
 ```
 
 or
@@ -226,8 +226,8 @@ component, and when you use it, supply the icon prop an icon name as a string.
 We'll make `Beverage.js` a functional component:
 
 ```javascript
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { h } from '@aduh95/async-jsx'
+import { FontAwesomeIcon } from '@aduh95/jsx-fontawesome'
 
 export const Beverage = () => (
   <div>
@@ -245,8 +245,8 @@ and how we can do something different than the default.
 Now suppose `Gadget.js` looks like this:
 
 ```javascript
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { h } from '@aduh95/async-jsx'
+import { FontAwesomeIcon } from '@aduh95/jsx-fontawesome'
 
 export const Gadget = () => (
   <div>
@@ -312,44 +312,12 @@ When testing components, you'll want to make sure that any icons referenced in t
     If this happens, and the icon isn't important to the particular test, you can mock FontAwesomeIcon like this:
 
     ```js
-    import React from 'react'
+    import { h } from '@aduh95/async-jsx'
 
     export function FontAwesomeIcon(props) {
       return <i className="fa" />
     }
     ```
-
-    With [create-react-app](https://github.com/facebook/create-react-app), you can put this code in `src/__mocks__/@fortawesome/react-fontawesome.js` to automatically include it in any tests, and alleviate errors.
-
-### Processing i elements into svg using Font Awesome
-
-Our hope and intention is that React users will use this package (`react-fontawesome`)
-when using Font Awesome. This component leverages React's architecture and philosophy.
-
-However, **if you cannot use these components everywhere in your app and still
-have `<i>` tags on your page that need to be converted to `<svg>` tags we can
-still help you**.
-
-A basic installation of [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=svg-with-js) has
-the ability to automatically transform `<i class="fas fa-coffee"></i>` into
-`<svg class="...">...</svg>` icons. This technology works with the browser's
-DOM, [`requestAnimationFrame`][raf], and [`MutationObserver`][mo].
-
-When using the `@fortawesome/fontawesome-svg-core` package this **behavior is
-disabled by default**. (We would _highly_ recommend you use `FontAwesomeIcon`
-if you can) This project uses that core package so you will have to explicitly
-enable it like this:
-
-To configure the core library to convert non-React'ified parts of your App:
-
-```javascript
-import { dom } from '@fortawesome/fontawesome-svg-core'
-
-dom.watch() // This will kick of the initial replacement of i to svg tags and configure a MutationObserver
-```
-
-[raf]: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
-[mo]: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
 
 ## Features
 
@@ -495,7 +463,7 @@ const coffeeIconDefinition: IconDefinition = findIconDefinition(coffeeLookup)
 
 // ...
 
-export class App extends React.Component {
+export class App extends Component {
   render() {
     return (
       <div className="App">
@@ -574,7 +542,3 @@ The Font Awesome team:
 |   <img src="https://github.com/robmadole.png?size=72" />   | Rob Madole     | [@robmadole](https://github.com/robmadole)         |
 |  <img src="https://github.com/mlwilkerson.png?size=72" />  | Mike Wilkerson | [@mlwilkerson](https://github.com/mlwilkerson)     |
 |     <img src="https://github.com/talbs.png?size=72" />     | Brian Talbot   | [@talbs](https://github.com/talbs)                 |
-
-## Releasing this project (only project owners can do this)
-
-See [DEVELOPMENT.md](DEVELOPMENT.md#release)

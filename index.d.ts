@@ -1,3 +1,5 @@
+/// <reference types="react" />
+import { CSSProperties, SVGAttributes } from 'react'
 import {
   Transform,
   IconProp,
@@ -10,7 +12,15 @@ import {
 
 export function FontAwesomeIcon(props: Props): JSX.Element
 
-export interface Props {
+/**
+ * @deprecated use FontAwesomeIconProps
+ */
+export type Props = FontAwesomeIconProps
+
+// This is identical to the version of Omit in Typescript 3.5. It is included for compatibility with older versions of Typescript.
+type BackwardCompatibleOmit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
+
+export interface FontAwesomeIconProps extends BackwardCompatibleOmit<SVGAttributes<SVGSVGElement>, 'children' | 'mask' | 'transform'> {
   icon: IconProp
   mask?: IconProp
   className?: string
@@ -27,7 +37,7 @@ export interface Props {
   rotation?: RotateProp
   transform?: string | Transform
   symbol?: FaSymbol
-  style?: string
+  style?: CSSProperties
   tabIndex?: number;
   title?: string;
   swapOpacity?: boolean;

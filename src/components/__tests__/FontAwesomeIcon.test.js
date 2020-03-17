@@ -1,10 +1,10 @@
 import * as fontawesome from '@fortawesome/fontawesome-svg-core'
-import FontAwesomeIcon from '../FontAwesomeIcon'
+import FontAwesomeIcon from '../FontAwesomeIcon.js'
 import React from 'react'
 import renderer from 'react-test-renderer'
-import log from '../../logger'
+import log from '../../logger.js'
 
-jest.mock('../../logger')
+jest.mock('../../logger.js')
 
 const faCoffee = {
   prefix: 'fas',

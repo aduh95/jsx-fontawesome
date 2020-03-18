@@ -42,6 +42,8 @@ function convert(createElement, element, extraProps = {}) {
   const children = (element.children || []).map(child => {
     return convert(createElement, child);
   });
+  /* eslint-disable dot-notation */
+
   const mixins = Object.keys(element.attributes || {}).reduce((acc, key) => {
     const val = element.attributes[key];
 

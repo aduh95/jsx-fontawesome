@@ -2,9 +2,9 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@fortawesome/fontawesome-svg-core'), require('prop-types'), require('@aduh95/async-jsx')) :
   typeof define === 'function' && define.amd ? define(['exports', '@fortawesome/fontawesome-svg-core', 'prop-types', '@aduh95/async-jsx'], factory) :
   (global = global || self, factory(global['jsx-fontawesome'] = {}, global.FontAwesome, global.PropTypes, global.h));
-}(this, function (exports, fontawesomeSvgCore, PropTypes, asyncJsx) { 'use strict';
+}(this, (function (exports, fontawesomeSvgCore, PropTypes, asyncJsx) { 'use strict';
 
-  PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
+  PropTypes = PropTypes && Object.prototype.hasOwnProperty.call(PropTypes, 'default') ? PropTypes['default'] : PropTypes;
 
   /**
    * Removes any hypens, underscores, and whitespace characters, and uppercases the first character that follows.
@@ -46,6 +46,8 @@
     const children = (element.children || []).map(child => {
       return convert(createElement, child);
     });
+    /* eslint-disable dot-notation */
+
     const mixins = Object.keys(element.attributes || {}).reduce((acc, key) => {
       const val = element.attributes[key];
 
@@ -219,4 +221,4 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));

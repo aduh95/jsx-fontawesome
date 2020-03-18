@@ -1,7 +1,7 @@
 {
   "name": "@aduh95/jsx-fontawesome",
   "description": "Unofficial Async-JSX component for Font Awesome 5",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "index.js",
   "module": "index.es.js",
   "types": "index.d.ts",
@@ -42,8 +42,8 @@
     ]
   },
   "peerDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.27",
-    "@aduh95/async-jsx": "^0.1.0 || ^0.2.0"
+    "@aduh95/async-jsx": "^0.1.0 || ^0.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27"
   },
   "devDependencies": {
     "@aduh95/async-jsx": "^0.2.0",
